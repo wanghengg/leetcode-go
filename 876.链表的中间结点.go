@@ -12,6 +12,8 @@
  *     Next *ListNode
  * }
  */
+package leetcodego
+
 func middleNode(head *ListNode) *ListNode {
 	slow := head
 	fast := head
@@ -23,4 +25,3 @@ func middleNode(head *ListNode) *ListNode {
 }
 
 // @lc code=end
-
