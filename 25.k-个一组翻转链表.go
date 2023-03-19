@@ -39,16 +39,16 @@ func getKthNode(head *ListNode, k int) *ListNode {
 	return head
 }
 
-func reverseList(head *ListNode) *ListNode {
-	var node1 *ListNode = nil
-	node2 := head
-	for node2 != nil {
-		tmp := node2.Next
-		node2.Next = node1
-		node1 = node2
-		node2 = tmp
-	}
-	return node1
-}
+// func reverseList(head *ListNode) *ListNode {
+// 	var node1 *ListNode = nil
+// 	node2 := head
+// 	for node2 != nil {
+// 		tmp := node2.Next
+// 		node2.Next = node1
+// 		node1 = node2
+// 		node2 = tmp
+// 	}
+// 	return node1
+// }
 
 // @lc code=end
