@@ -42,15 +42,13 @@ func getKthElement(nums1, nums2 []int, k int) int {
 			index2 = newIndex2 + 1
 		}
 	}
-	return 0
 }
 
 func min(x, y int) int {
 	if x < y {
 		return x
-	} else {
-		return y
 	}
+	return y
 }
 
 // @lc code=end

@@ -18,7 +18,6 @@ func findDuplicate(nums []int) int {
 			nums[0], nums[nums[0]] = nums[nums[0]], nums[0]
 		}
 	}
-	return 0
 }
 
 // @lc code=end
