@@ -35,7 +35,7 @@ func fourSum(nums []int, target int) [][]int {
 						l++
 					}
 					for r >= 0 && nums[r] == nums[r+1] {
-						r++
+						r--
 					}
 				} else if sum < target {
 					l++
