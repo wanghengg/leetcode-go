@@ -33,4 +33,34 @@ func spiralOrder(matrix [][]int) []int {
 	return res
 }
 
+func spiralOrder1(matrix [][]int) []int {
+	if len(matrix) == 0 || len(matrix[0]) == 0 {
+		return []int{}
+	}
+	rows, columns := len(matrix), len(matrix[0])
+	res := make([]int, 0, rows*columns)
+	left, right, top, bottom := 0, columns-1, 0, rows-1
+	for left <= right && top <= bottom {
+		for column := left; column <= right; column++ {
+			res = append(res, matrix[top][column])
+		}
+		for row := top + 1; row <= bottom; row++ {
+			res = append(res, matrix[row][right])
+		}
+		if left < right && top < bottom { // 最后只有一行或者一列，不能继续遍历
+			for column := right - 1; column >= left; column-- {
+				res = append(res, matrix[bottom][column])
+			}
+			for row := bottom - 1; row > top; row-- {
+				res = append(res, matrix[row][left])
+			}
+		}
+		left++
+		right--
+		top++
+		bottom--
+	}
+	return res
+}
+
 // @lc code=end
