@@ -27,19 +27,10 @@ func pathSum(root *TreeNode, targetSum int) [][]int {
 		curSum += node.Val
 		if curSum == targetSum && node.Left == nil && node.Right == nil {
 			res = append(res, append([]int{}, combine...))
-			return
 		}
-		if node.Left == nil && node.Right == nil {
-			return
-		}
-		if node.Left != nil {
-			dfs(node.Left, curSum)
-			combine = combine[:len(combine)-1]
-		}
-		if node.Right != nil {
-			dfs(node.Right, curSum)
-			combine = combine[:len(combine)-1]
-		}
+		dfs(node.Left, curSum)
+		dfs(node.Right, curSum)
+		combine = combine[:len(combine)-1]
 	}
 	dfs(root, 0)
 	return res
