@@ -68,4 +68,35 @@ func sortArray1(nums []int) []int {
 	return mergeSort(nums)
 }
 
+// 堆排序
+func sortArray2(nums []int) []int {
+	var maxHeapify func(nums []int, i, heapSize int)
+	maxHeapify = func(nums []int, i, heapSize int) {
+		l, r, largest := 2*i+1, 2*i+2, i
+		if l < heapSize && nums[l] > nums[largest] {
+			largest = l
+		}
+		if r < heapSize && nums[r] > nums[largest] {
+			largest = r
+		}
+		if largest != i {
+			nums[i], nums[largest] = nums[largest], nums[i]
+			maxHeapify(nums, largest, heapSize)
+		}
+	}
+	buildMaxHeap := func(nums []int, heapSize int) {
+		for i := heapSize / 2; i >= 0; i-- {
+			maxHeapify(nums, i, heapSize)
+		}
+	}
+	heapSize := len(nums)
+	buildMaxHeap(nums, heapSize)
+	for i := len(nums) - 1; i >= 0; i-- {
+		heapSize--
+		nums[0], nums[i] = nums[i], nums[0]
+		maxHeapify(nums, 0, heapSize)
+	}
+	return nums
+}
+
 // @lc code=end
